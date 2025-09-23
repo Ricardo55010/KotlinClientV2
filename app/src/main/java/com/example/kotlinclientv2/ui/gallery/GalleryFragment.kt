@@ -11,7 +11,7 @@ import com.example.kotlinclientv2.databinding.FragmentGalleryBinding
 
 class GalleryFragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
+    private var _binding: FragmentGalleryBinding? = null //helpful to avoid memory leaks
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,18 +25,19 @@ class GalleryFragment : Fragment() {
         val galleryViewModel =
             ViewModelProvider(this).get(GalleryViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentGalleryBinding.inflate(inflater, container, false) //inflating
         val root: View = binding.root
 
         val textView: TextView = binding.textGallery
         galleryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+            textView.text = it/*it is the default name for the property
+            when no other is assigned*/
+        } //observing the viewModel for changes in text variable
+        return root //this is the view, its return rather than used for setContentView
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        _binding = null //deleting the fragment with the mutable var
     }
 }
