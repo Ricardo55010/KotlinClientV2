@@ -20,4 +20,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/> <!--This is important to get it in the binding in the fragment-->
 </androidx.constraintlayout.widget.ConstraintLayout>

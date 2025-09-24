@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.kotlinclientv2.databinding.FragmentGalleryBinding
+import com.example.kotlinclientv2.R
 
 class GalleryFragment : Fragment() {
 
@@ -33,6 +35,7 @@ class GalleryFragment : Fragment() {
             textView.text = it/*it is the default name for the property
             when no other is assigned*/
         } //observing the viewModel for changes in text variable
+        binding.button.setOnClickListener { findNavController().navigate(R.id.nav_home) } //adding navigation to another fragment based on the id defined in mobile/navigation.xml
         return root //this is the view, its return rather than used for setContentView
     }
 
