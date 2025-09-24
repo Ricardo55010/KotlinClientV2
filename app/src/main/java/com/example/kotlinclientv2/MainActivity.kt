@@ -43,6 +43,9 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        binding.appBarMain.fab.setOnClickListener {
+            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.nav_gallery)
+        } //this is adding event to the floating action button from material compoennts using the navcontroller from navhostfragment and navigates to the gallery ragment
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
