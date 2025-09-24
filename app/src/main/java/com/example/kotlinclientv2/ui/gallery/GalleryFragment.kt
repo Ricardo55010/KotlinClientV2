@@ -31,6 +31,9 @@ class GalleryFragment : Fragment() {
         val root: View = binding.root
         //binding.textGallery.text  = "Manual modiicaction from fragment" this won't work because the livedata is overwriting it instantly
         val textView: TextView = binding.textGallery
+        galleryViewModel.secondText.observe(viewLifecycleOwner){
+            binding.secondaryText.text = it
+        }
         galleryViewModel.text.observe(viewLifecycleOwner) { //livedata
             textView.text = it/*it is the default name for the property
             when no other is assigned*/

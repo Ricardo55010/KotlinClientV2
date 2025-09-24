@@ -10,4 +10,9 @@ class GalleryViewModel : ViewModel() {
         value = "This is gallery Fragment"
     }
     val text: LiveData<String> = _text
+
+    private val _secondText = MutableLiveData<String>().apply {//defining the livestate
+        value = "This is a secondary test"
+    }
+    val secondText: LiveData<String> = _secondText
 }
