@@ -15,7 +15,7 @@ class GalleryFragment : Fragment() {
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+    private val binding get() = _binding!! //this is the setter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,9 +27,9 @@ class GalleryFragment : Fragment() {
 
         _binding = FragmentGalleryBinding.inflate(inflater, container, false) //inflating
         val root: View = binding.root
-
+        //binding.textGallery.text  = "Manual modiicaction from fragment" this won't work because the livedata is overwriting it instantly
         val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
+        galleryViewModel.text.observe(viewLifecycleOwner) { //livedata
             textView.text = it/*it is the default name for the property
             when no other is assigned*/
         } //observing the viewModel for changes in text variable
